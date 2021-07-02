@@ -9,8 +9,12 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { CityComponent } from './city/city.component';
-import { CityDetailComponent } from './city/cityDetail/cityDetail.component';
+import { NgxEditorModule } from 'ngx-editor';
+
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { CityDetailComponent } from './city/cityDetail/cityDetail.component';
+import { CityAddComponent } from './city/cityAdd/cityAdd.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [				
     AppComponent,
@@ -18,13 +22,16 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
       NavComponent,
       CityComponent,
       CityDetailComponent,
+      CityAddComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    NgxGalleryModule
+    NgxGalleryModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

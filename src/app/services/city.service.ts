@@ -24,6 +24,6 @@ export class CityService {
   }
 
   add(city:any){
-    this.httpClient.post(this.path+'city/add',city).subscribe();
+    this.httpClient.post(this.path+'cities/add',city).subscribe();
   }
 }
