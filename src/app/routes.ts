@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router"
 import { CityComponent } from "./city/city.component"
-import { CityDetailComponent } from "./cityDetail/cityDetail.component";
+import { CityDetailComponent } from "./city/cityDetail/cityDetail.component";
 import { ValueComponent } from "./value/value.component"
 
 export const appRoutes: Routes = [
