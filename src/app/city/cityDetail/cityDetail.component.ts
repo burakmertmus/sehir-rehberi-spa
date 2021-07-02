@@ -29,8 +29,8 @@ export class CityDetailComponent implements OnInit {
 
   getCityById(cityId: any) {
     this.cityService.getCityById(cityId).subscribe(data => {
-      
       this.city = data;
+      this.getPhotosByCity(cityId)
     });
   }
 
