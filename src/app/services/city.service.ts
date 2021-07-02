@@ -16,7 +16,7 @@ export class CityService {
     return this.httpClient.get<City[]>(this.path + "cities");
   }
   getCityById(cityId: any): Observable<City> {
-    return this.httpClient.get<City>(this.path + "cities/detail/=id=" + cityId);
+    return this.httpClient.get<City>(this.path + "cities/detail/?id=" + cityId);
   }
 
   getPhotosByCity(cityId: any): Observable<Photo[]> {

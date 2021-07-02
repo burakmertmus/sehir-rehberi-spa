@@ -11,7 +11,7 @@ import { CityService } from '../services/city.service';
 export class CityDetailComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private cityService: CityService) { }
-  city!:City;
+  city!: City;
   ngOnInit() {
 
     this.activatedRoute.params.subscribe(params => {
