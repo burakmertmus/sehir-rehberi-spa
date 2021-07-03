@@ -31,10 +31,15 @@
           </div>
         </li>
       </ul>
-      <form class="d-flex">
+      <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="d-flex">
+        <input class="form-control me-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text" placeholder="Kullanıcı Adı">
+        <input class="form-control me-sm-2" name="password" type="password" [(ngModel)]="loginUser.password" required placeholder="Şifre">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid" >Giriş</button>
         <input class="form-control me-sm-2" type="text" placeholder="Search">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
       </form>
+
     </div>
   </div>
 </nav>

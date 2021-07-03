@@ -6,7 +6,7 @@ import { ValueComponent } from "./value/value.component"
 
 export const appRoutes: Routes = [
     { path: "city", component: CityComponent },
-    { path: "cityadd", component: CityAddComponent },
+{ path: "cityadd", component: CityAddComponent },
 { path: "value", component: ValueComponent },
 { path: "cityDetail/:cityId", component: CityDetailComponent },
 { path: "**", redirectTo: "city", pathMatch: "full" }
