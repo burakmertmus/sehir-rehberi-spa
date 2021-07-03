@@ -43,11 +43,12 @@ export class AuthService {
     headers = headers.append("Context-Type", "application/json");
     
     this.httpClient
-    .post(this.path+"/register",registerUser,{headers:headers})
+    .post(this.path+"register",registerUser,{headers:headers})
     .subscribe(data=>{
 
     });
-
+    
+    this.router.navigateByUrl("/city");
   }
 
   saveToken(token:string){
@@ -57,7 +58,7 @@ export class AuthService {
 
   logOut(){
     localStorage.removeItem(this.TOKEN_KEY);
-    this.alertifyService.success("Sistemden Çıkış yapıldı.");
+    this.alertifyService.error("Sistemden Çıkış yapıldı.");
   }
 
   loggedIn(){

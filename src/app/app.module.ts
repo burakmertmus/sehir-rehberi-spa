@@ -16,15 +16,17 @@ import { CityDetailComponent } from './city/cityDetail/cityDetail.component';
 import { CityAddComponent } from './city/cityAdd/cityAdd.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AlertifyService } from './services/alertify.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
       ValueComponent,
       NavComponent,
       CityComponent,
       CityDetailComponent,
-      CityAddComponent
+      CityAddComponent,
+      RegisterComponent
    ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { AlertifyService } from './services/alertify.service';
     RouterModule.forRoot(appRoutes),
     NgxGalleryModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxEditorModule
   ],
   providers: [AlertifyService],
   bootstrap: [AppComponent]
