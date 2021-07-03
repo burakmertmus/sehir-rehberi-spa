@@ -5,6 +5,7 @@ import { City } from 'src/app/models/city';
 
 
 
+
 @Component({
   selector: 'app-cityAdd',
   templateUrl: './cityAdd.component.html',
@@ -15,8 +16,11 @@ import { City } from 'src/app/models/city';
 
 export class CityAddComponent implements OnInit {
 
-  constructor(private cityService:CityService,
-    private formBuilder:FormBuilder) { }
+  constructor(
+    private cityService:CityService,
+    private formBuilder:FormBuilder,
+    
+    ) { }
 
     city!:City
     cityAddForm:FormGroup | undefined;
@@ -39,6 +43,7 @@ export class CityAddComponent implements OnInit {
       //Todo
       this.city.userId=1;
       this.cityService.add(this.city);
+      
     }else{console.log("ekleme");}
 
   }
