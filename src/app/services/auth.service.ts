@@ -69,7 +69,7 @@ export class AuthService {
   }
 
   getCurrentUserId(){
-    return this.jwtHelper.decodeToken(this.token).nameId;
+    return this.jwtHelper.decodeToken(this.TOKEN_KEY).nameId;
   }
 
 

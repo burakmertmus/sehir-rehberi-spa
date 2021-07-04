@@ -21,6 +21,8 @@ export class CityDetailComponent implements OnInit {
   galleryImages?: NgxGalleryImage[];
 
   ngOnInit() {
+    
+    
     this.activatedRoute.params.subscribe(params => {
       this.getCityById(params["cityId"]);
       this.getPhotosByCity(params["cityId"]);
@@ -44,14 +46,8 @@ export class CityDetailComponent implements OnInit {
   getImages(){
     const imageUrls=[]
     
-    if(this.city.photos != undefined){
-
-      console.log("City:"+this.city);
-     
-    }else{
-      console.log("çalışmadı");
-    }
-    if(this.photos != undefined){
+   
+    if(typeof(this.photos)  != 'undefined'){
       
       for(let i =0;i<this.city.photos.length;i++){
         imageUrls.push({

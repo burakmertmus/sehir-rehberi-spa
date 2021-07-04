@@ -23,7 +23,7 @@ export class CityAddComponent implements OnInit {
     ) { }
 
     city!:City
-    cityAddForm:FormGroup | undefined;
+    cityAddForm!:FormGroup;
   ngOnInit() {
     this.createCityForm();
   }

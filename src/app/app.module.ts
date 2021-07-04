@@ -17,16 +17,19 @@ import { CityAddComponent } from './city/cityAdd/cityAdd.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AlertifyService } from './services/alertify.service';
 import { RegisterComponent } from './register/register.component';
+import { PhotoComponent } from './photo/photo.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
       ValueComponent,
       NavComponent,
       CityComponent,
       CityDetailComponent,
       CityAddComponent,
-      RegisterComponent
+      RegisterComponent,
+      PhotoComponent
    ],
   imports: [
     BrowserModule,
@@ -36,11 +39,13 @@ import { RegisterComponent } from './register/register.component';
     NgxGalleryModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxEditorModule
+    NgxEditorModule,
+    FileUploadModule,
   ],
   providers: [AlertifyService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   /**
    *

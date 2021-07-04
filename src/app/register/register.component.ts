@@ -14,7 +14,8 @@ import { AuthService } from '../services/auth.service';
 export class RegisterComponent implements OnInit {
 
   constructor(private authService:AuthService, private formBuilder:FormBuilder) { }
-  registerForm:FormGroup;
+  
+  registerForm:FormGroup | undefined;
   registerUser:any={};
 
   ngOnInit() {
@@ -33,12 +34,21 @@ export class RegisterComponent implements OnInit {
   }
 
   passwordMatchValidator(g:FormGroup){
-    return g.get('password').value===
-    g.get('confirmPassword').value?null:{misMatch:true}
+    // if (g.get('password')!=null) {
+    //   if (g.get('password').value === g.get('confirmPassword').value) {
+    //     return null;
+    //   }
+    //   else{
+    //     return {misMatch:true};
+    //   }
+    // }
+    // else{
+    //   return;
+    // }
   }
 
   register(){
-    if(this.registerForm.valid){
+    if(this.registerForm!=undefined){
       this.registerUser=Object.assign({},this.registerForm.value);
       this.authService.register(this.registerUser);
     }

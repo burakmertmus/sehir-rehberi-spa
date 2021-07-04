@@ -16,7 +16,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "strictNullChecks":false,
+    // "strictNullChecks":false,
     "lib": [
       "es2018",
       "dom"
