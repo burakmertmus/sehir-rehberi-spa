@@ -20,6 +20,12 @@ import { RegisterComponent } from './register/register.component';
 import { PhotoComponent } from './photo/photo.component';
 import {FileUploadModule} from 'ng2-file-upload';
 
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
 @NgModule({
   declarations: [						
     AppComponent,
