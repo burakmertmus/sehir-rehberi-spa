@@ -14,7 +14,7 @@ export class CityService {
   constructor(private httpClient: HttpClient,
     private alertifyService:AlertifyService,
     private router:Router) { }
-  path = "https://localhost:44300/"
+  path = "http://burakmertmus-001-site1.itempurl.com/"
 
   getCities(): Observable<City[]> {
     return this.httpClient.get<City[]>(this.path + "cities");

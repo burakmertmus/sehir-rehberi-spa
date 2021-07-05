@@ -15,7 +15,7 @@ export class AuthService {
     private router:Router,
     private alertifyService:AlertifyService) { }
 
-  path: string = "https://localhost:44300/auth/"
+  path: string = "http://burakmertmus-001-site1.itempurl.com/values/auth/"
   userToken:any;
   decodedToken:any;
 

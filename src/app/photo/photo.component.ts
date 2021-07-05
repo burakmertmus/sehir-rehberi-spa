@@ -20,7 +20,7 @@ export class PhotoComponent implements OnInit {
     photos:Photo[]=[];
     uploader=this.fileUploader;
     hasBaseDropZoneOver=false;
-    baseUrl="https://localhost:44300/";
+    baseUrl="http://burakmertmus-001-site1.itempurl.com/values/";
     currentMain?:Photo;
     currentCity:any;
     
