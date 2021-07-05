@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
-    "start": "node dist/index.js",
+    "start": "node server.js",
     "postinstall": "tsc",
     "watch-node": "nodemon dist/index.js",
     "watch-ts": "tsc -w",
@@ -25,6 +25,7 @@
     "angular2-jwt": "^0.2.3",
     "bootstrap": "^5.0.2",
     "bootswatch": "^5.0.2",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "ng2-file-upload": "^1.4.0",
     "ngx-bootstrap": "^6.2.0",
@@ -33,7 +34,10 @@
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.2.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/cli": "^12.1.1",
+    "@angular/compiler-cli": "^12.1.1",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.1.1",
@@ -48,5 +52,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "engines": { "node": "v14.15.1" }
+
 }
