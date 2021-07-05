@@ -69,10 +69,11 @@ export class AuthService {
   }
 
   getCurrentUserId(){
-    return this.jwtHelper.decodeToken(this.TOKEN_KEY).nameId;
+    if(this.token!=null){
+      console.log(this.token);
+      return this.jwtHelper.decodeToken(this.token).nameid;
+    }else {return;}
+    
   }
-
-
-
 
 }

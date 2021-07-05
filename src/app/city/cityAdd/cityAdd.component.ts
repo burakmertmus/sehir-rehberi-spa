@@ -2,6 +2,8 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { CityService } from 'src/app/services/city.service';
 import {FormGroup,FormControl,Validator,FormBuilder, Validators} from "@angular/forms"
 import { City } from 'src/app/models/city';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 
 
@@ -19,6 +21,8 @@ export class CityAddComponent implements OnInit {
   constructor(
     private cityService:CityService,
     private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private router:Router
     
     ) { }
 
@@ -26,6 +30,7 @@ export class CityAddComponent implements OnInit {
     cityAddForm!:FormGroup;
   ngOnInit() {
     this.createCityForm();
+    console.log(this.authService.getCurrentUserId());
   }
 
   createCityForm(){
@@ -36,15 +41,13 @@ export class CityAddComponent implements OnInit {
   }
 
   add(){
-    console.log("add Çalıştı");
     if (this.cityAddForm !=undefined) {
-      console.log("ekle");
       this.city=Object.assign({},this.cityAddForm.value)
       //Todo
-      this.city.userId=1;
+      this.city.userId=this.authService.getCurrentUserId();
       this.cityService.add(this.city);
       
-    }else{console.log("ekleme");}
+    }
 
   }
 }
