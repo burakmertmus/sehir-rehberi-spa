@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import {appRoutes} from "./routes";
-//import { NgxGalleryModule } from 'ngx-gallery';
 
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,26 +9,43 @@ import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
 import { CityComponent } from './city/city.component';
-import { CityDetailComponent } from './cityDetail/cityDetail.component';
+import { NgxEditorModule } from 'ngx-editor';
+
+import { NgxGalleryModule } from 'ngx-gallery-9';
+import { CityDetailComponent } from './city/cityDetail/cityDetail.component';
+import { CityAddComponent } from './city/cityAdd/cityAdd.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AlertifyService } from './services/alertify.service';
+import { RegisterComponent } from './register/register.component';
+import { PhotoComponent } from './photo/photo.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
-  declarations: [				
+  declarations: [						
     AppComponent,
       ValueComponent,
       NavComponent,
       CityComponent,
-      CityDetailComponent
+      CityDetailComponent,
+      CityAddComponent,
+      RegisterComponent,
+      PhotoComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    // NgxGalleryModule
+    NgxGalleryModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxEditorModule,
+    FileUploadModule,
   ],
-  providers: [],
+  providers: [AlertifyService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
   /**
    *
