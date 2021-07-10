@@ -36,7 +36,7 @@ export class PhotoComponent implements OnInit {
     
     this.uploader=new FileUploader({
       
-      url:this.baseUrl+'cities/'+this.currentCity+'/photos',
+      url:this.baseUrl+'cities/photos/?cityId='+this.currentCity,
       authToken:'Bearer' +localStorage.getItem('token'),
       isHTML5:true,
       allowedFileType:['image'],
