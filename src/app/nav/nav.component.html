@@ -1,10 +1,11 @@
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" >
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#"><div class="CityBook"><i class="fa fa-fw fa-home"></i>CityBook</div></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" routerLink="../city"routerLinkActive="active" >Cities
@@ -17,7 +18,7 @@
           <a class="nav-link" routerLink="../cityadd" routerLinkActive="active">Add City</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="../register" routerLinkActive="active">Register</a>
+          <a class="nav-link" routerLink="../register" routerLinkActive="active"><i class="fa fa-fw fa-user-plus"></i>Register</a>
         </li>
       
       </ul>
@@ -26,6 +27,9 @@
         <input class="form-control me-sm-2" name="password" type="password" [(ngModel)]="loginUser.password" required placeholder="Şifre">
         <button class="btn btn-secondary my-2 my-sm-0" type="submit" [disabled]="!loginForm.valid" >Login</button>
       </form>
+      <div class="user" *ngIf="isAuthenticated">
+        <div><i class="fa fa-user-circle" aria-hidden="true"></i>{{currentUser}}</div>
+      </div>
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf="isAuthenticated" (click)="logOut()">Log Out</button>
 
     </div>

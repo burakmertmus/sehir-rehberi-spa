@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
-import { AlertifyService } from '../services/alertify.service';
 import { AuthService } from '../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Photo } from '../models/photo';
 
 @Component({
@@ -15,7 +14,7 @@ export class PhotoComponent implements OnInit {
   public fileUploader!:FileUploader
   constructor(
     private authService:AuthService,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute:ActivatedRoute,private router:Router) { }
     
     photos:Photo[]=[];
     uploader=this.fileUploader;
@@ -34,16 +33,17 @@ export class PhotoComponent implements OnInit {
   
   initializeUploader(){
     
+    //'Bearer'
     this.uploader=new FileUploader({
-      
       url:this.baseUrl+'cities/photos/?cityId='+this.currentCity,
-      authToken:'Bearer' +localStorage.getItem('token'),
+      authToken:'Bearer '+localStorage.getItem('token'),
       isHTML5:true,
       allowedFileType:['image'],
       autoUpload:false,
       removeAfterUpload:true,
       maxFileSize:10*1024*1024
     });
+    
 
     this.uploader.onSuccessItem = (item,response,status,headers) =>{
       if (response) {
@@ -52,13 +52,13 @@ export class PhotoComponent implements OnInit {
           id:res.id,
           url:res.url,
           dateAdded:res.dateAdded,
-          describtion:res.description,
+          describtion:"res.description",
           isMain:res.isMain,
           cityId:res.cityId
         }
         this.photos.push(photo);
       }
     }
-
+    
   }
 }

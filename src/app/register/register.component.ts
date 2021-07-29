@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService:AuthService, private formBuilder:FormBuilder) { }
   
-  registerForm:FormGroup | undefined;
+  registerForm?:FormGroup;
   registerUser:any={};
 
   ngOnInit() {
@@ -32,19 +32,16 @@ export class RegisterComponent implements OnInit {
     {validator:this.passwordMatchValidator}
     );
   }
-
+  
   passwordMatchValidator(g:FormGroup){
-    // if (g.get('password')!=null) {
-    //   if (g.get('password').value === g.get('confirmPassword').value) {
-    //     return null;
-    //   }
-    //   else{
-    //     return {misMatch:true};
-    //   }
-    // }
-    // else{
-    //   return;
-    // }
+    
+      if (g.get('password')?.value === g.get('confirmPassword')?.value) {
+        return null;
+      }
+      else{
+        return {misMatch:true};
+      }
+    
   }
 
   register(){
