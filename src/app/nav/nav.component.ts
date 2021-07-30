@@ -10,17 +10,24 @@ export class NavComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
   loginUser:any={}
+  currentUser:string=""
   ngOnInit() {
   }
+  
   login(){
     this.authService.login(this.loginUser)
+    
   }
   
   logOut(){
+    this.currentUser="";
     this.authService.logOut()
   }
-
+  getUserName(){
+    this.currentUser=this.authService.getCurrentUserName()
+  }
   get isAuthenticated(){
+    this.getUserName();
     return this.authService.loggedIn();
   }
 }

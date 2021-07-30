@@ -27,26 +27,31 @@ export class AuthService {
     let headers = new HttpHeaders();
     headers = headers.append("Context-Type", "application/json");
     
-    this.httpClient
+     var respon=this.httpClient
     .post(this.path + "login", loginUser, { headers: headers })
-    .subscribe(data => {
+    .subscribe(
+      data => {
       //console.log(params);
         this.saveToken(data.toString());
        this.userToken=data;
        this.decodedToken=this.jwtHelper.decodeToken(data.toString());
        this.alertifyService.success("Sisteme başarıyla giriş yapıldı.");
-    });
+    },error => this.alertifyService.error("Kullanıcı Adı veya Şifre Hatalı !")
+    );
+    
+    
+
   }
 
   register(registerUser:RegisterUser){
     let headers = new HttpHeaders();
     headers = headers.append("Context-Type", "application/json");
-    
     this.httpClient
     .post(this.path+"register",registerUser,{headers:headers})
     .subscribe(data=>{
-
-    });
+      this.alertifyService.success("Sisteme başarıyla kayıt yapıldı.");
+    },error=>this.alertifyService.error("Kayıt yapılamadı!"));
+    
     
     this.router.navigateByUrl("/city");
   }
@@ -67,10 +72,17 @@ export class AuthService {
   get token(){
     return localStorage.getItem(this.TOKEN_KEY);
   }
-
+  getCurrentUserName(){
+    if(this.token!=null){
+      return this.jwtHelper.decodeToken(this.token).unique_name;
+    }else {return;}
+    
+  }
   getCurrentUserId(){
     if(this.token!=null){
-      console.log(this.token);
+      // console.log(this.token);
+      // console.log(this.jwtHelper.decodeToken(this.token).unique_name)
+
       return this.jwtHelper.decodeToken(this.token).nameid;
     }else {return;}
     
