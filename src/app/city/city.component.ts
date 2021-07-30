@@ -22,8 +22,6 @@ export class CityComponent implements OnInit {
   }
 
   get currentUserName(){
-    console.log("city userid"+this.authService.getCurrentUserName()!=undefined?this.authService.getCurrentUserName():false)
-    
    return this.authService.getCurrentUserName()!=undefined?this.authService.getCurrentUserName():false;
   }
 }
