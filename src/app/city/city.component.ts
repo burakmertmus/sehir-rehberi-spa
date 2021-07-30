@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../models/city';
+import { AuthService } from '../services/auth.service';
 import { CityService } from '../services/city.service';
 
 @Component({
@@ -10,13 +11,19 @@ import { CityService } from '../services/city.service';
 })
 export class CityComponent implements OnInit {
 
-  constructor(private cityService:CityService) { }
+  constructor(private cityService:CityService,private authService:AuthService) { }
   cities?:City[]
   
   ngOnInit() {
-   
-  this.cityService.getCities().subscribe(data=>{ this.cities=data});
-    
+  
+  this.cityService.getCities().subscribe(data=>{ 
+    this.cities=data;
+  });
   }
 
+  get currentUserName(){
+    console.log("city userid"+this.authService.getCurrentUserName()!=undefined?this.authService.getCurrentUserName():false)
+    
+   return this.authService.getCurrentUserName()!=undefined?this.authService.getCurrentUserName():false;
+  }
 }
