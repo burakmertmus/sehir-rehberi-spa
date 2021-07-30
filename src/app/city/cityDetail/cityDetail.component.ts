@@ -31,7 +31,6 @@ export class CityDetailComponent implements OnInit {
   }
 
    get currentUser(){
-    // console.log("city userid"+this.city.userId)
     if(this.authService.getCurrentUserId()!=undefined){
       if(this.authService.getCurrentUserId()==this.city.userId)
       {
@@ -90,7 +89,6 @@ export class CityDetailComponent implements OnInit {
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide
       },
-      // max-width 800
       {
         breakpoint: 800,
         width: '100%',
@@ -100,7 +98,6 @@ export class CityDetailComponent implements OnInit {
         thumbnailsMargin: 20,
         thumbnailMargin: 20
       },
-      // max-width 400
       {
         breakpoint: 400,
         preview: false
