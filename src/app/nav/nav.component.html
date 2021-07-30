@@ -11,11 +11,11 @@
           <a class="nav-link" routerLink="../city"routerLinkActive="active" >Cities
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link"  routerLink="../value" routerLinkActive="active">Values</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="../cityadd" routerLinkActive="active">Add City</a>
+          <a class="nav-link" *ngIf="isAuthenticated" routerLink="../cityadd" routerLinkActive="active">Add City</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="../register" routerLinkActive="active"><i class="fa fa-fw fa-user-plus"></i>Register</a>

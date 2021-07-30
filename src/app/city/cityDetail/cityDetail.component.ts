@@ -5,6 +5,7 @@ import { CityService } from '../../services/city.service';
 
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery-9';
 import { Photo } from '../../models/photo';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cityDetail',
@@ -14,19 +15,34 @@ import { Photo } from '../../models/photo';
 })
 export class CityDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private cityService: CityService) { }
+  constructor(private activatedRoute: ActivatedRoute
+    ,private cityService: CityService
+    ,private authService:AuthService) { }
   city!: City;
   photos: Photo[]=[];
   galleryOptions!: NgxGalleryOptions[];
   galleryImages?: NgxGalleryImage[];
 
   ngOnInit() {
-    
-    
     this.activatedRoute.params.subscribe(params => {
       this.getCityById(params["cityId"]);
       this.getPhotosByCity(params["cityId"]);
     });
+  }
+
+   get currentUser(){
+    // console.log("city userid"+this.city.userId)
+    if(this.authService.getCurrentUserId()!=undefined){
+      if(this.authService.getCurrentUserId()==this.city.userId)
+      {
+      return true;
+      }
+      else{
+        return false;
+      }
+    }else{
+      return false;
+    }
   }
 
   getCityById(cityId: any) {

@@ -16,11 +16,11 @@ export class NavComponent implements OnInit {
   
   login(){
     this.authService.login(this.loginUser)
+    
   }
   
   logOut(){
     this.currentUser="";
-    this.loginUser=""
     this.authService.logOut()
   }
   getUserName(){
