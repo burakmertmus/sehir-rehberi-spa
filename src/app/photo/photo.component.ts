@@ -3,6 +3,7 @@ import { FileUploader } from 'ng2-file-upload';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Photo } from '../models/photo';
+import { AlertifyService } from '../services/alertify.service';
 
 @Component({
   selector: 'app-photo',
@@ -14,7 +15,9 @@ export class PhotoComponent implements OnInit {
   public fileUploader!:FileUploader
   constructor(
     private authService:AuthService,
-    private activatedRoute:ActivatedRoute,private router:Router) { }
+    private activatedRoute:ActivatedRoute,
+    private router:Router,
+    private alertifyService:AlertifyService) { }
     
     photos:Photo[]=[];
     uploader=this.fileUploader;
@@ -57,6 +60,8 @@ export class PhotoComponent implements OnInit {
           cityId:res.cityId
         }
         this.photos.push(photo);
+        this.alertifyService.success("Resim Eklendi");
+        this.router.navigateByUrl("/cityDetail/"+photo.cityId);
       }
     }
     

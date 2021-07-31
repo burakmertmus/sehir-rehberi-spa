@@ -60,7 +60,7 @@ export class CityDetailComponent implements OnInit {
 
     });
   }
-
+  
   getImages(){
     const imageUrls=[]
     
@@ -87,7 +87,8 @@ export class CityDetailComponent implements OnInit {
         width: '600px',
         height: '400px',
         thumbnailsColumns: 4,
-        imageAnimation: NgxGalleryAnimation.Slide
+        imageAnimation: NgxGalleryAnimation.Slide,
+        previewCloseOnClick:true
       },
       {
         breakpoint: 800,
@@ -100,11 +101,12 @@ export class CityDetailComponent implements OnInit {
       },
       {
         breakpoint: 400,
-        preview: false
+        preview:false
       }
     ];
- 
+    
     this.galleryImages = this.getImages();
  
   }
+  
 }
