@@ -31,7 +31,6 @@ export class AuthService {
     .post(this.path + "login", loginUser, { headers: headers })
     .subscribe(
       data => {
-      //console.log(params);
         this.saveToken(data.toString());
        this.userToken=data;
        this.decodedToken=this.jwtHelper.decodeToken(data.toString());
@@ -57,7 +56,6 @@ export class AuthService {
   }
 
   saveToken(token:string){
-    console.log(token);
     localStorage.setItem(this.TOKEN_KEY,token);
   }
 
@@ -80,9 +78,6 @@ export class AuthService {
   }
   getCurrentUserId(){
     if(this.token!=null){
-      // console.log(this.token);
-      // console.log(this.jwtHelper.decodeToken(this.token).unique_name)
-
       return this.jwtHelper.decodeToken(this.token).nameid;
     }else {return;}
     

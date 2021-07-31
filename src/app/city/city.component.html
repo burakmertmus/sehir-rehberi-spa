@@ -18,7 +18,7 @@
               <p>{{city.userId}}</p>
               <button *ngIf="city.userName !=undefined && currentUserName==city.userName" routerLink="/cityDetail/{{city.id}}" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
             </div>
-            <small class="text-muted">9 mins</small>
+            <small class="text-muted">{{city.dateAdded | date:'short':'IST'}}</small>
           </div>
         </div>
       </div>
