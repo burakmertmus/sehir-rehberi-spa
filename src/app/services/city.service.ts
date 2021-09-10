@@ -14,7 +14,7 @@ export class CityService {
   constructor(private httpClient: HttpClient,
     private alertifyService:AlertifyService,
     private router:Router) { }
-  path = "http://burakmertmus-001-site1.itempurl.com/"
+  path = "https://cityguidebookapi.herokuapp.com/"
 
   getCities(): Observable<City[]> {
     return this.httpClient.get<City[]>(this.path + "cities");
