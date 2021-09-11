@@ -13,17 +13,14 @@
           <a class="nav-link" routerLink="../city"routerLinkActive="active" >Cities
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link"  routerLink="../value" routerLinkActive="active">Values</a>
-        </li> -->
         <li class="nav-item">
           <a class="nav-link" *ngIf="isAuthenticated" routerLink="../cityadd" routerLinkActive="active">Add City</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="../register" *ngIf="!isAuthenticated" routerLinkActive="active"><i class="fa fa-fw fa-user-plus"></i>Register</a>
         </li>
-      
       </ul>
+      
       <form *ngIf="!isAuthenticated" #loginForm="ngForm" (ngSubmit)="login()" class="d-flex">
         <input class="form-control me-sm-2" name="userName" [(ngModel)]="loginUser.userName" required type="text" placeholder="Kullanıcı Adı">
         <input class="form-control me-sm-2" name="password" type="password" [(ngModel)]="loginUser.password" required placeholder="Şifre">
@@ -35,5 +32,6 @@
       <button class="btn btn-secondary my-2 my-sm-0" type="submit" *ngIf="isAuthenticated" (click)="logOut()">Log Out</button>
 
     </div>
+    
   </div>
 </nav>

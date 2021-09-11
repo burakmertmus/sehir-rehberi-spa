@@ -23,11 +23,12 @@ export class CityComponent implements OnInit {
   cities?:City[]
   
   
-
+    loading:boolean=true;
   ngOnInit() {
   
   this.cityService.getCities().subscribe(data=>{ 
     this.cities=data;
+    this.loading=false;
   });
   }
 
