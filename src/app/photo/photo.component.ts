@@ -22,7 +22,7 @@ export class PhotoComponent implements OnInit {
     photos:Photo[]=[];
     uploader=this.fileUploader;
     hasBaseDropZoneOver=false;
-    baseUrl="http://burakmertmus-001-site1.itempurl.com/";
+    baseUrl="https://cityguidebookapi.herokuapp.com/";
     currentMain?:Photo;
     currentCity:any;
     

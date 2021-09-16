@@ -79,7 +79,7 @@ export class AuthService {
   getCurrentUserId(){
     if(this.token!=null){
       return this.jwtHelper.decodeToken(this.token).nameid;
-    }else {return;}
+    }else {return false}
     
   }
 
