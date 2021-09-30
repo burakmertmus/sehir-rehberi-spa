@@ -61,7 +61,9 @@ export class PhotoComponent implements OnInit {
         }
         this.photos.push(photo);
         this.alertifyService.success("Resim Eklendi");
-        this.router.navigateByUrl("/cityDetail/"+photo.cityId);
+        window.location.reload();
+        
+        
       }
     }
     

@@ -40,7 +40,6 @@ export class CityDetailComponent implements OnInit {
   }
   
    get currentUser(){
-    console.log(this.city.userId)
     if(this.authService.getCurrentUserId()!=undefined && this.city.userId != undefined){
       if(this.authService.getCurrentUserId()==this.city.userId)
       {
