@@ -18,7 +18,7 @@ export class CityDetailComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute
     ,private cityService: CityService
     ,private authService:AuthService) { }
-  city!: City;
+  city: City = new City;
   photos: Photo[]=[];
   galleryOptions!: NgxGalleryOptions[];
   galleryImages?: NgxGalleryImage[];
