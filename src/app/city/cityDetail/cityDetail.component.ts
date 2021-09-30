@@ -18,20 +18,30 @@ export class CityDetailComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute
     ,private cityService: CityService
     ,private authService:AuthService) { }
-  city!: City;
+  city: City = new City;
   photos: Photo[]=[];
   galleryOptions!: NgxGalleryOptions[];
   galleryImages?: NgxGalleryImage[];
 
   ngOnInit() {
+    
     this.activatedRoute.params.subscribe(params => {
       this.getCityById(params["cityId"]);
       this.getPhotosByCity(params["cityId"]);
     });
   }
 
+  getCityById(cityId: any) {
+    this.cityService.getCityById(cityId).subscribe(data => {
+      this.city = data;
+      
+      this.getPhotosByCity(cityId)
+    });
+  }
+  
    get currentUser(){
-    if(this.authService.getCurrentUserId()!=undefined){
+    console.log(this.city.userId)
+    if(this.authService.getCurrentUserId()!=undefined && this.city.userId != undefined){
       if(this.authService.getCurrentUserId()==this.city.userId)
       {
       return true;
@@ -44,12 +54,7 @@ export class CityDetailComponent implements OnInit {
     }
   }
 
-  getCityById(cityId: any) {
-    this.cityService.getCityById(cityId).subscribe(data => {
-      this.city = data;
-      this.getPhotosByCity(cityId)
-    });
-  }
+ 
 
   getPhotosByCity(cityId:any){
     this.cityService.getPhotosByCity(cityId).subscribe(data=>{

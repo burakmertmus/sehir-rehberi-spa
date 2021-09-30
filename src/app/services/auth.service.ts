@@ -70,12 +70,15 @@ export class AuthService {
   get token(){
     return localStorage.getItem(this.TOKEN_KEY);
   }
+
   getCurrentUserName(){
     if(this.token!=null){
+      
       return this.jwtHelper.decodeToken(this.token).unique_name;
     }else {return;}
     
   }
+
   getCurrentUserId(){
     if(this.token!=null){
       return this.jwtHelper.decodeToken(this.token).nameid;
