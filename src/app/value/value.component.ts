@@ -18,7 +18,7 @@ export class ValueComponent implements OnInit {
     });
   }
   getValues(){
-    return this.http.get<Value[]>("https://localhost:44300/values");
+    return this.http.get<Value[]>("https://cityguidebookapi.herokuapp.com/values");
   }
 
 }

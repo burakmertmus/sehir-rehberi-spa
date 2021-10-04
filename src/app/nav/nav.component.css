@@ -15,14 +15,15 @@
 .user{
     margin-right: 1%;
 }
+
 .navbar{
-  /* background-image: url(muss.png); */
-  height: 100px;
+   background-image: url(logo.png);
+   height: 100px;
+   background-size: 5%;
     
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 10%;
 
   /* Needed to position the navbar */
   position: relative;

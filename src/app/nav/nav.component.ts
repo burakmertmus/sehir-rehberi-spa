@@ -9,11 +9,16 @@ import { AuthService } from '../services/auth.service';
 export class NavComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
-  loginUser:any={}
-  currentUser:string=""
+  loginUser:any={};
+  currentUser:string="";
+  navbarCollapse:boolean=false;
   ngOnInit() {
   }
   
+  togglenavbar(){
+    return !this.navbarCollapse;
+  }
+
   login(){
     this.authService.login(this.loginUser)
     
